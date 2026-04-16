@@ -10,13 +10,14 @@ on:
 
 jobs:
   process:
-    permissions:
-      contents: read
-      packages: write
+    name: Build and Push Docker Image
     uses: albr21/gha-reusable-workflows/.github/workflows/reusable-build-and-push-docker-image-on-ghcr.yml@main
     with:
       name: python-3.13
       tag: ${{ inputs.version }}-alpine
       dockerfile: dockerfiles/python-3.13-alpine/Dockerfile
       context: dockerfiles/python-3.13-alpine
+    permissions:
+      contents: read
+      packages: write
     secrets: inherit
