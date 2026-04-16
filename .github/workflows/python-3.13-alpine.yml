@@ -10,6 +10,9 @@ on:
 
 jobs:
   process:
+    permissions:
+      contents: read
+      packages: write
     uses: albr21/gha-reusable-workflows/.github/workflows/reusable-build-and-push-docker-image-on-ghcr.yml@main
     with:
       name: python-3.13
