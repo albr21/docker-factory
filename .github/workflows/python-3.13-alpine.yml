@@ -1,0 +1,19 @@
+name: 🕹️ Python 3.13 Alpine
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version
+        type: string
+        required: true
+
+jobs:
+  process:
+    uses: albr21/gha-reusable-workflows/.github/workflows/reusable-build-and-push-docker-image-on-ghcr.yml@main
+    with:
+      name: python-3.13
+      tag: ${{ inputs.version }}-alpine
+      dockerfile: dockerfiles/python-3.13-alpine/Dockerfile
+      context: dockerfiles/python-3.13-alpine
+    secrets: inherit
