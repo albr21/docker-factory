@@ -1,10 +1,10 @@
-# <project-name>
+# docker-factory
 
-<!-- A brief description of the project. -->
+Centralized Docker images factory, deployed on GHCR.
 
 ## Usage
 
-<!-- Provide instructions on how to use the project, including code examples if applicable. -->
+TODO
 
 ## Contributing
 
