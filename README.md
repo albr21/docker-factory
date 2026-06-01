@@ -10,7 +10,7 @@ docker pull ghcr.io/albr21/<image_name>:<image_tag>
 
 ## Available Images
 
-- [Python 31.13 Alpine](./docs/python-3.13-alpine.md)
+- [Python 3.13 Alpine](./docs/python-3.13-alpine.md)
 - [Trivy](./docs/trivy.md)
 
 ## Quick Deployment
