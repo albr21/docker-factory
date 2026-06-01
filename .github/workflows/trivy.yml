@@ -1,0 +1,23 @@
+name: 🕹️ Trivy
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version
+        type: string
+        required: true
+
+jobs:
+  deploy:
+    name: Build and Push Docker Image
+    uses: albr21/gha-reusable-workflows/.github/workflows/reusable-build-and-push-docker-image-on-ghcr.yml@main
+    with:
+      name: trivy
+      tag: ${{ inputs.version }}
+      dockerfile: dockerfiles/trivy/Dockerfile
+      context: dockerfiles/trivy
+    permissions:
+      contents: read
+      packages: write
+    secrets: inherit
