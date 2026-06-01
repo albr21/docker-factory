@@ -7,16 +7,22 @@ on:
         description: Version
         type: string
         required: true
+      scan:
+        description: Enable vulnerability scan
+        type: boolean
+        required: true
+        default: true
 
 jobs:
-  deploy:
-    name: Build and Push Docker Image
-    uses: albr21/gha-reusable-workflows/.github/workflows/reusable-build-and-push-docker-image-on-ghcr.yml@main
+  process:
+    name: Build, Push and Scan Docker Image
+    uses: albr21/gha-reusable-workflows/.github/workflows/reusable-build-push-and-scan-docker-image-on-ghcr.yml@main
     with:
       name: trivy
       tag: ${{ inputs.version }}
       dockerfile: dockerfiles/trivy/Dockerfile
       context: dockerfiles/trivy
+      fail-on-vulnerability: ${{ inputs.scan }}
     permissions:
       contents: read
       packages: write
