@@ -9,7 +9,7 @@ on:
         required: true
 
 jobs:
-  process:
+  deploy:
     name: Build and Push Docker Image
     uses: albr21/gha-reusable-workflows/.github/workflows/reusable-build-and-push-docker-image-on-ghcr.yml@main
     with:
@@ -21,3 +21,10 @@ jobs:
       contents: read
       packages: write
     secrets: inherit
+  scan:
+    name: Docker Image Vulnerability Scan
+    uses: albr21/gha-reusable-workflows/.github/workflows/reusable-docker-image-vulnerability-scan.yml@main
+    needs: [ deploy ]
+    with:
+      name: python-3.13
+      tag: ${{ inputs.version }}-alpine
