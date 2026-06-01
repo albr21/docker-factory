@@ -18,6 +18,13 @@ Thanks for considering contributing to **docker-factory**! Here’s how you can 
 ## Code Style
 - Ensure that your code passes existing tests and includes new ones for new features or fixes
 
+## Add new Docker Image
+
+- Add the Dockerfile to the `dockerfiles` directory
+- Add the documentation to the `docs` directory
+- Add the GitHub Action workflow to the `.github/workflows` directory
+- Add the documentation link in the `README.md`
+
 ## License
 
 By contributing, you agree that your contributions will be licensed under the MIT License -- see the [LICENSE](LICENSE) file for details.
