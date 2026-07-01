@@ -1,8 +1,11 @@
 name: docker-factory
 description: |-
   Centralized Docker images factory, deployed on GHCR
-version: 1.0.0
+version: 1.1.0
 releases:
+  - version: 1.1.0
+    changes:
+      - Add shields docker image
   - version: 1.0.0
     changes:
       - Initial release

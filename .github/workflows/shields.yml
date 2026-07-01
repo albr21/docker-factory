@@ -1,0 +1,29 @@
+name: 🕹️ Shields
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version
+        type: string
+        required: true
+      scan:
+        description: Enable vulnerability scan
+        type: boolean
+        required: true
+        default: true
+
+jobs:
+  process:
+    name: Build, Push and Scan Docker Image
+    uses: albr21/gha-reusable-workflows/.github/workflows/reusable-build-push-and-scan-docker-image-on-ghcr.yml@main
+    with:
+      name: shields
+      tag: ${{ inputs.version }}
+      dockerfile: dockerfiles/shields/Dockerfile
+      context: dockerfiles/shields
+      fail-on-vulnerability: ${{ inputs.scan }}
+    permissions:
+      contents: read
+      packages: write
+    secrets: inherit
